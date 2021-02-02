@@ -1,0 +1,28 @@
+{
+    "name": "imageplus/apivcs",
+    "description": "API Version Control System",
+    "minimum-stability": "stable",
+    "version": "1.0.0",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "João Matos",
+            "email": "joao.matos@image-plus.co.uk"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Imageplus\\APIVersionControl\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Imageplus\\APIVersionControl\\Providers\\APIVersionControlServiceProvider"
+            ],
+            "aliases": {
+                "APIVersionControl": "Imageplus\\APIVersionControl\\Facades\\APIVersionControl"
+            }
+        }
+    }
+}
