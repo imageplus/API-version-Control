@@ -2,7 +2,7 @@
     "name": "imageplus/apivcs",
     "description": "API Version Control System",
     "minimum-stability": "stable",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "license": "MIT",
     "authors": [
         {
