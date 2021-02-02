@@ -148,7 +148,7 @@ class APIVersionControlValidator
 
 		$key = strtoupper($key);
 
-		if (env("VCS_{$key}_LOCKED__VERSION"))
+		if (env("VCS_{$key}_LOCKED_VERSION"))
 			$config = array_map('trim', explode(',', env("VCS_{$key}_LOCKED_VERSION")));
 
 		return $config;
