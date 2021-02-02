@@ -176,8 +176,8 @@ You can block specific versions of devices or global API versions as well using 
 These are seperated by `,` and you need to specify the exact version as shown above.
 
 ## ENV Override
-While `env_override` is true in your config file, most of the configuration can be overriten on
-your `env` file. Below is the correct syntax for the supported overrides:
+While `env_override` is true in your config file, most of the configuration can be overwritten on
+your `env` file. This will not take effect if you cache your config. Below is the correct syntax for the supported overrides:
 ```
 VCS_{device_type}_MINIMUM_VERSION //Sets the minimum version for {device_type}
 

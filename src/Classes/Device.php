@@ -32,10 +32,20 @@ class Device
 		$version_matches = [];
 		preg_match('/^([0-9]+)\.([0-9]+)\.([0-9]+)?/', $version, $version_matches);
 
-		if (!count($version_matches)) abort(400, 'Invalid version format');
-
-		$this->version = $version_matches[0];
-		$this->features = $this->compileFeatures();
+		if (!count($version_matches)) {
+			if (is_nan((int)$version))
+				abort(400, 'Invalid version format');
+			
+			$bits = str_split((string)$version);
+			if (count($bits) > 3)
+				$this->version = "{$bits[0]}.{$bits[1]}{$bits[2]}.{$bits[3]}";
+			else
+				$this->version = "{$bits[0]}.{$bits[1]}.{$bits[2]}";
+		}
+		else {
+			$this->version = $version_matches[0];
+			$this->features = $this->compileFeatures();
+		}
 	}
 
 	/**
