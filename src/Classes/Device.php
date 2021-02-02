@@ -24,7 +24,7 @@ class Device
 
 	/**
 	 * Sets the device
-	 *
+
 	 * @param $version
 	 */
 	public function setup($version){
@@ -44,8 +44,9 @@ class Device
 		}
 		else {
 			$this->version = $version_matches[0];
-			$this->features = $this->compileFeatures();
 		}
+
+		$this->features = $this->compileFeatures();
 	}
 
 	/**
