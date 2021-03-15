@@ -26,6 +26,8 @@ class Middleware
 
 		$request_uri = $request->server->get('REQUEST_URI');
 		$global_version = null;
+		$preg_matches = [];
+		preg_match('/(\/api\/v[0-9]+)/', $request_uri, $preg_matches);
 
 		//If we have been redirected for a version, let's grab and register that version
 		if (strrpos(url()->previous(), '/api/v') !== false){
@@ -44,7 +46,7 @@ class Middleware
 
 		}
 		//else let's check if we do have a version on the url
-		else if (strrpos($request_uri, '/api/v') === 0){
+		else if (strrpos($request_uri, '/api/v') === 0 && count($preg_matches)){
 			try {
 				$request_uri = substr($request_uri, strlen('/api/v'));
 

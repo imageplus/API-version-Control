@@ -67,10 +67,11 @@ class APIVersionControlServiceProvider extends ServiceProvider
 	protected function handleRoutes()
 	{
 		//Forces the middleware to always trigger
-		Route::any('/api/v{version}/{any}', function () {
+		Route::any('/api/{version}/{any}', function () {
 			abort(404);
 		})
 			->middleware('api')
+			->where('version', 'v[0-9]+')
 			->where('any', '.*');
 	}
 
